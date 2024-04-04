@@ -17,4 +17,7 @@ var traceProvider = Sdk.CreateTracerProviderBuilder()
                     new KeyValuePair<string, object>("host.machineName", Environment.MachineName),
                     new KeyValuePair<string, object>("host.enviroment", "dev"),
                 });
-    }).Build();
+    }).AddConsoleExporter().Build();
+
+var serciceHelper = new ServiceHelper();
+serciceHelper.Work1();
