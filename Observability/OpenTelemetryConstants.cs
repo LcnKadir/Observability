@@ -8,7 +8,7 @@ namespace Observability
 {
     internal class OpenTelemetryConstants
     {
-        const string ServiceName = "CompanyName.AppName.ComponentName";
-        const string ServiceVersion = "1.0.0";
+        internal const string ServiceName = "CompanyName.AppName.ComponentName";
+        internal const string ServiceVersion = "1.0.0";
     }
 }
