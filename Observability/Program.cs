@@ -11,7 +11,7 @@ var traceProvider = Sdk.CreateTracerProviderBuilder()
     .ConfigureResource(configure =>
     {
         configure
-        .AddService(OpenTelemetryConstants.ServiceName, OpenTelemetryConstants.ServiceVersion)
+        .AddService(OpenTelemetryConstants.ServiceName, serviceVersion: OpenTelemetryConstants.ServiceVersion)
         .AddAttributes(new List<KeyValuePair<string, object>>()
                 {
                     new KeyValuePair<string, object>("host.machineName", Environment.MachineName),
@@ -20,4 +20,4 @@ var traceProvider = Sdk.CreateTracerProviderBuilder()
     }).AddConsoleExporter().Build();
 
 var serciceHelper = new ServiceHelper();
-serciceHelper.Work1();
+await serciceHelper.Work1();
