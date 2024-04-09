@@ -19,10 +19,14 @@ namespace Observability
                 var eventTags = new ActivityTagsCollection();
 
                 activity?.AddEvent(new("google'a istek başladı", tags: eventTags));
-
+                activity?.AddTag("request.shemca", "https");
+                activity?.AddTag("request.method", "get");
 
                 var result = await httpClient.GetAsync("https://www.google.com");
+
                 var responseContent = await result.Content.ReadAsStringAsync();
+
+                activity?.AddTag("response.lentgh", responseContent.Length);
 
 
                 eventTags.Add("google body lenght", responseContent.Length);
@@ -38,7 +42,7 @@ namespace Observability
                 return -1;
             }
 
-           
+
         }
 
     }
